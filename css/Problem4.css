@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+.book-cover {
+    transition: transform .2s;
+    cursor: pointer
+}
+.book-cover:hover {
+    transform: scale(1.2); 
+}
+.expansion-box {
+    position: relative;
+    display: none;
+}
+#imgtext {
+    font-size: 40px;
+}
+.closebtn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: black;
+    font-size: 35px;
+    cursor: pointer;
+  }

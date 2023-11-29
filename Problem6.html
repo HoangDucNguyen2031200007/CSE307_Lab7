@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <!-- <form action="#" method="post"> -->
+    <table border="1" cellspacing="2" cellpadding="5">
+      <colgroup>
+        <col style="width: 200px" />
+        <col style="width: 300px" />
+      </colgroup>
+      <tfoot>
+        <tr>
+          <td style="text-align: center" colspan="2">
+            <button onclick="validateForm()">Submit</button>
+          </td>
+        </tr>
+      </tfoot>
+      <tr>
+        <td class="desc"><label for="fullname">Full Name*</label></td>
+        <td>
+          <input class="txtfield" type="text" id="fullname" size="45" />
+          <p class="validate" id="validateName"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="email">Email*</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="email"
+            id="email"
+            pattern="[^ @]*@[^ @].[^ @]"
+            size="45"
+          />
+          <p class="validate" id="validateEmail"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="pass">Password*</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="password"
+            id="pass"
+            placeholder="Enter your password"
+            size="45"
+          />
+          <p class="validate" id="validatePassword"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="cf-pass">Confirm Password*</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="password"
+            id="cf-pass"
+            placeholder="Enter your password again"
+            size="45"
+          />
+          <p class="validate" id="validateCfPassword"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="phone">Phone Number*</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="tel"
+            id="phone"
+            maxlength="10"
+            size="45"
+          />
+          <p class="validate" id="validatePhone"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="address">Address</label></td>
+        <td>
+          <textarea class="txtfield" id="address" cols="40" rows="5"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="city">City</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="text"
+            id="city"
+            size="17"
+            maxlength="17"
+            placeholder="Enter your City"
+          /><label for="state"><b>State</b></label
+          ><input
+            class="txtfield"
+            type="text"
+            id="state"
+            size="17"
+            max="17"
+            placeholder="Enter your State"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="zip">Zip/Postal Code</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="text"
+            id="zip"
+            size="45"
+            placeholder="Enter your Zip/Postal Code"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="country">Country</label></td>
+        <td>
+          <select id="country">
+            <option value="Value1" selected="selected">
+              [Select your country]
+            </option>
+            <option value="Value2">Argentina</option>
+            <option value="Value3">Canada</option>
+            <option value="Value4">China</option>
+            <option value="Value5">England</option>
+            <option value="Value6">France</option>
+            <option value="Value7">Germany</option>
+            <option value="Value8">Japan</option>
+            <option value="Value9">USA</option>
+            <option value="Value10">Vietnam</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="birthday">Birthday</label></td>
+        <td>
+          <input
+            class="txtfield"
+            type="date"
+            id="birthday"
+            size="45"
+            placeholder="mm/dd/yyyy"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="gender">Gender</label></td>
+        <td>
+          <select id="gender">
+            <option value="Value1" selected="selected">Male</option>
+            <option value="Value2">Female</option>
+            <option value="Value3">Other</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc">Starting date</td>
+        <td>
+          <input type="radio" id="starting-date-spring" name="starting-date" />
+          <label for="starting-date-spring">Spring</label>
+          <input type="radio" id="starting-date-summer" name="starting-date" />
+          <label for="starting-date-summer">Summer</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"><label for="comments">Comments</label></td>
+        <td>
+          <textarea
+            class="txtfield"
+            id="comments"
+            cols="40"
+            rows="5"
+            placeholder="Please send us more information"
+          ></textarea>
+        </td>
+      </tr>
+    </table>
+    <!-- </form> -->
+
+    <script>
+      const validateForm = () => {
+        var nameMsg = "";
+        var emailMsg = "";
+        var passMsg = "";
+        var cfPassMsg = "";
+        var phoneMsg = "";
+        let name = document.getElementById("fullname").value;
+        let email = document.getElementById("email").value;
+        let pass = document.getElementById("pass").value;
+        let cfPass = document.getElementById("cf-pass").value;
+        let phone = document.getElementById("phone").value;
+        if (name === "") {
+          nameMsg = "Please input your name";
+        }
+        if (email === "") {
+          emailMsg = "Please input your email";
+        }
+        if (pass === "" || pass.length < 6) {
+          passMsg = "Please input your password (min-length = 6)";
+        }
+        if (cfPass !== pass || cfPass === "") {
+          cfPassMsg = "It does not match your password";
+        }
+        if (phone === "" || isNaN(phone)) {
+          phoneMsg = "Invalid phone number";
+        }
+        document.getElementById("validateName").innerHTML = nameMsg;
+        document.getElementById("validateEmail").innerHTML = emailMsg;
+        document.getElementById("validatePassword").innerHTML = passMsg;
+        document.getElementById("validateCfPassword").innerHTML = cfPassMsg;
+        document.getElementById("validatePhone").innerHTML = phoneMsg;
+      };
+    </script>
+
+    <style>
+      .validate {
+        color: red;
+      }
+    </style>
+  </body>
+</html>

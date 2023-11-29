@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 1</title>
+  </head>
+  <body>
+    <p>Problem 1: Replace all href values</p>
+    <label for="link">Your link;</label>
+    <input type="text" name="link" id="link" />
+    <button onclick="replaceLink()">Submit</button>
+    <p><a href="#">Website 1</a></p>
+    <p><a href="#">Website 2</a></p>
+    <p><a href="#">Website 3</a></p>
+
+    <script>
+      const replaceLink = () => {
+        const link = document.getElementById("link").value;
+        console.log(link);
+        var links = document.querySelectorAll("a");
+        links.forEach((a) => (a.href = link));
+      };
+    </script>
+  </body>
+</html>

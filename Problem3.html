@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 3</title>
+  </head>
+  <body>
+    <div>
+      <p class="example">This is the first paragraph with class "example".</p>
+      <p class="example">Another paragraph with class "example".</p>
+      <p>This is a regular paragraph</p>
+      <p>
+        <a href="#" target="_blank">Link with target attribute</a>
+      </p>
+      <p>
+        <a href="#" target="_blank">Another link with target attribute</a>
+      </p>
+      <h1 class="title">Title 1</h1>
+      <h2 class="title">Title 2</h2>
+      <button onclick="change()">Change</button>
+    </div>
+
+    <script>
+      const change = () => {
+        document.querySelector("p.example").style.backgroundColor = "yellow";
+        const paragraphList = document.querySelectorAll(".example");
+        for (let i = 0; i < paragraphList.length; i++) {
+          paragraphList[i].style.border = "1px solid green";
+          paragraphList[i].style.margin = "10px";
+          paragraphList[i].style.padding = "10px";
+        }
+        const linkList = document.querySelectorAll("a[target]");
+        for (let i = 0; i < linkList.length; i++) {
+          linkList[i].style.border = "1px solid red";
+          linkList[i].style.textDecoration = "none";
+        }
+        const titleList = document.querySelectorAll(".title");
+        for (let i = 0; i < titleList.length; i++) {
+          titleList[i].style.color = "orange";
+        }
+      };
+    </script>
+  </body>
+</html>

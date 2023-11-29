@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 2</title>
+  </head>
+  <body>
+    <div>
+      <p class="example">This is the first paragraph with class "example".</p>
+      <p class="example">This is another paragraph</p>
+      <p class="example">
+        <a href="#" target="_blank">Link with target attribute</a>
+      </p>
+      <button onclick="change()">Change</button>
+    </div>
+
+    <script>
+      const change = () => {
+        document.querySelector("p.example").style.backgroundColor = "yellow";
+        document.querySelector("a[target]").style.border = "1px solid red";
+        document.querySelector("div > p").style.fontSize = "20";
+        document.querySelector("div > p").style.color = "blue";
+      };
+    </script>
+  </body>
+</html>
